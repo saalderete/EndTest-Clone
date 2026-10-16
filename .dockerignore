@@ -1,0 +1,13 @@
+node_modules
+dist
+data
+database
+*.dump
+*.sql.gz
+*.tar.gz
+.env
+.env.*
+!.env.example
+.git
+artifacts
+generated-artifacts

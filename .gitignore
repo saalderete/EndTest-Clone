@@ -1,0 +1,17 @@
+node_modules
+dist
+.DS_Store
+server/public
+vite.config.ts.*
+*.tar.gz
+/generated-artifacts/
+
+# Never commit database dumps, local env or run artifacts
+database/
+*.dump
+*.sql.gz
+.env
+.env.*
+!.env.example
+artifacts/
+/data/

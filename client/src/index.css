@@ -1,0 +1,178 @@
+@import "@fontsource-variable/geist";
+@import "@fontsource-variable/geist-mono";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* TestHarvest tokens. Calm navy/graphite chrome, white working surfaces,
+   teal for success and focus, amber for warnings, red only for real failures. */
+:root {
+  --background: 220 20% 96.5%;
+  --foreground: 220 45% 11%;
+  --surface: 0 0% 100%;
+  --surface-2: 220 20% 98%;
+  --muted: 220 16% 93.5%;
+  --muted-foreground: 220 12% 40%;
+  --subtle-foreground: 220 10% 52%;
+  --border: 220 15% 88.5%;
+  --border-strong: 220 14% 80%;
+  --input: 220 15% 85%;
+  --ring: 174 72% 36%;
+
+  --primary: 219 47% 16%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 220 16% 93.5%;
+  --secondary-foreground: 220 45% 14%;
+  --accent: 220 16% 94%;
+  --accent-foreground: 220 45% 12%;
+  --brand: 174 72% 32%;
+  --brand-foreground: 0 0% 100%;
+
+  --success: 160 84% 28%;
+  --success-soft: 152 60% 94%;
+  --warning: 32 95% 36%;
+  --warning-soft: 43 96% 92%;
+  --danger: 0 72% 45%;
+  --danger-soft: 0 86% 96%;
+  --info: 217 80% 46%;
+  --info-soft: 214 95% 95%;
+  --neutral-soft: 220 14% 93%;
+
+  --destructive: 0 72% 45%;
+  --destructive-foreground: 0 0% 100%;
+  --card: 0 0% 100%;
+  --card-foreground: 220 45% 11%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 220 45% 11%;
+
+  --sidebar-background: 219 45% 11%;
+  --sidebar-foreground: 218 25% 80%;
+  --sidebar-muted: 218 18% 58%;
+  --sidebar-primary: 174 64% 52%;
+  --sidebar-primary-foreground: 219 45% 11%;
+  --sidebar-accent: 219 36% 18%;
+  --sidebar-accent-foreground: 0 0% 100%;
+  --sidebar-border: 219 32% 19%;
+  --sidebar-ring: 174 64% 52%;
+
+  --chart-1: 160 84% 34%;
+  --chart-2: 0 72% 52%;
+  --chart-3: 32 95% 44%;
+  --chart-4: 217 80% 52%;
+  --chart-5: 220 12% 60%;
+
+  --radius: 0.75rem;
+  --shadow-color: 220 45% 11%;
+}
+
+.dark {
+  --background: 220 42% 6.5%;
+  --foreground: 218 30% 92%;
+  --surface: 220 36% 9.5%;
+  --surface-2: 220 34% 11%;
+  --muted: 220 30% 14%;
+  --muted-foreground: 218 16% 66%;
+  --subtle-foreground: 218 12% 54%;
+  --border: 220 28% 17%;
+  --border-strong: 220 24% 24%;
+  --input: 220 26% 22%;
+  --ring: 174 64% 48%;
+
+  --primary: 174 64% 48%;
+  --primary-foreground: 220 42% 7%;
+  --secondary: 220 30% 15%;
+  --secondary-foreground: 218 30% 92%;
+  --accent: 220 30% 15%;
+  --accent-foreground: 218 30% 94%;
+  --brand: 174 64% 48%;
+  --brand-foreground: 220 42% 7%;
+
+  --success: 158 64% 52%;
+  --success-soft: 160 50% 13%;
+  --warning: 38 92% 58%;
+  --warning-soft: 35 60% 13%;
+  --danger: 0 84% 66%;
+  --danger-soft: 0 50% 15%;
+  --info: 213 90% 66%;
+  --info-soft: 215 55% 16%;
+  --neutral-soft: 220 26% 16%;
+
+  --destructive: 0 72% 52%;
+  --destructive-foreground: 0 0% 100%;
+  --card: 220 36% 9.5%;
+  --card-foreground: 218 30% 92%;
+  --popover: 220 34% 11%;
+  --popover-foreground: 218 30% 92%;
+
+  --sidebar-background: 220 44% 5%;
+  --sidebar-foreground: 218 22% 76%;
+  --sidebar-muted: 218 14% 52%;
+  --sidebar-accent: 220 32% 13%;
+  --sidebar-border: 220 30% 12%;
+
+  --shadow-color: 0 0% 0%;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html {
+    -webkit-tap-highlight-color: transparent;
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: "Geist Variable", ui-sans-serif, system-ui, sans-serif;
+  }
+  code, kbd, pre {
+    font-family: "Geist Mono Variable", ui-monospace, SFMono-Regular, Menlo, monospace;
+  }
+  .tabular {
+    font-variant-numeric: tabular-nums;
+  }
+  ::selection {
+    background: hsl(var(--brand) / 0.22);
+  }
+  button, a, [role="button"] {
+    touch-action: manipulation;
+  }
+  @media (pointer: coarse) {
+    input, textarea, select {
+      font-size: 16px !important;
+    }
+  }
+}
+
+@layer components {
+  .surface {
+    @apply rounded-lg border bg-surface;
+    box-shadow: 0 1px 2px hsl(var(--shadow-color) / 0.04);
+  }
+  .eyebrow {
+    @apply text-[11px] font-medium uppercase tracking-[0.08em] text-subtle;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.75); }
+}
+.animate-pulse-dot {
+  animation: pulse-dot 1.4s ease-in-out infinite;
+}
+
+@media print {
+  aside, header, .no-print { display: none !important; }
+  main { padding: 0 !important; margin: 0 !important; }
+  body { background: white; }
+}
